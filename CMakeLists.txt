@@ -7,14 +7,20 @@ project(GameOff24Jam VERSION 1.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Locate SFML (adjust paths if needed)
-if (WIN32)
-    set(SFML_DIR "C:/SFML/lib/cmake/SFML")  # Update path if SFML is installed elsewhere
-endif()
+# Enable generation of compile_commands.json for IDE support
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# Locate and link SFML libraries
 find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 
 # Add the source files
-add_executable(GameOff2024 src/main.cpp)
+add_executable(GameOff2024 
+    src/main.cpp
+    src/game.cpp
+    src/input_manager.cpp
+    src/entity.cpp
+    src/player.cpp
+)
 
-# Link SFML libraries
+# Link SFML libraries to the executable
 target_link_libraries(GameOff2024 sfml-system sfml-window sfml-graphics sfml-audio)
