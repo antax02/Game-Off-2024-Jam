@@ -1,7 +1,7 @@
 #include "game.hpp"
-#include "player.hpp"
+#include <iostream>
 
-Game::Game() : window(sf::VideoMode(800, 600), "Game Window") {
+Game::Game() : window(sf::VideoMode(1280, 720), "Game Window"), player() {
     // Initialize game objects here (e.g., player)
 }
 
@@ -27,11 +27,13 @@ void Game::processEvents() {
 
 void Game::update(sf::Time deltaTime) {
     // Update game objects here (e.g., player.update(deltaTime);)
-
+    player.update(deltaTime);
+    player.handleInput(inputManager, deltaTime);
 }
 
 void Game::render() {
     window.clear();
     // Draw game objects here (e.g., window.draw(player);)
+    window.draw(player);
     window.display();
 }

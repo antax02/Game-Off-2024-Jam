@@ -10,4 +10,3 @@ public:
 private:
     std::unordered_map<sf::Keyboard::Key, bool> keyStates;
 };
-

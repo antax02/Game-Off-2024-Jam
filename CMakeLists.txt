@@ -20,6 +20,8 @@ add_executable(GameOff2024
     src/input_manager.cpp
     src/entity.cpp
     src/player.cpp
+    src/animation.cpp
+    src/texture_manager.cpp
 )
 
 # Link SFML libraries to the executable

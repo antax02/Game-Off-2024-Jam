@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "input_manager.hpp"
+#include "player.hpp"
 
 class Game {
 public:
@@ -14,5 +15,6 @@ private:
 
     sf::RenderWindow window;
     InputManager inputManager;
+    Player player;
     // Add game objects here later (e.g., Player player;)
 };

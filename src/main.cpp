@@ -1,8 +1,8 @@
 #include <SFML/Graphics.hpp>
-#include "Game.hpp"
+#include "game.hpp"
 
 int main() {
     Game game;
-    game.run(); // Start the main game loop
+    game.run();
     return 0;
 }

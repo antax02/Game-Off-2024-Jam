@@ -1,5 +1,6 @@
 #include "player.hpp"
-#include "animation.hpp"
+#include "input_manager.hpp"
+#include <SFML/Window/Keyboard.hpp>
 
 Player::Player()
     : idleAnimation(0, 32, 32, 4, 0.15f),
@@ -9,7 +10,7 @@ Player::Player()
       walkDownAnimation(4, 32, 32, 4, 0.1f),
       currentAnimation(&idleAnimation) {
 
-    sprite.setTexture(TextureManager::getTexture("../assets/player.png"));
+    sprite.setTexture(TextureManager::getTexture("assets/player_spritesheet.png"));
     currentAnimation->applyToSprite(sprite);
     sprite.setPosition(position);
 }
