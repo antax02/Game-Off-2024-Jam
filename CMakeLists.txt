@@ -16,6 +16,7 @@ find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 # Add the source files
 add_executable(GameOff2024 
     src/main.cpp
+    src/game.cpp
 )
 
 # Link SFML libraries to the executable
