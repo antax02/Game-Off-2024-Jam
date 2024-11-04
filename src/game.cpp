@@ -16,9 +16,11 @@ void Game::update(sf::Time dt) {
         if (event.type == sf::Event::Closed)
             window.close();
     }
+    player.update(dt);
 }
 
 void Game::render() {
     window.clear();
+    window.draw(player);
     window.display();
 }
