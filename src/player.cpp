@@ -4,6 +4,7 @@
 
 Player::Player() {
     sprite.setTexture(TextureManager::getTexture("../assets/player.png"));
+    sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
     sprite.setPosition(position);
 }
 
@@ -24,4 +25,12 @@ void Player::update(sf::Time dt) {
     
     position += velocity * dt.asSeconds();
     sprite.setPosition(position);
+}
+
+sf::IntRect Player::getRect() {
+    return sprite.getTextureRect();
+}
+
+sf::Vector2f Player::getPosition() {
+    return position;
 }
