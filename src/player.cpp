@@ -1,6 +1,6 @@
 #include "player.hpp"
 #include "texture_manager.hpp"
-#include <iostream>
+#include <cmath>
 
 Player::Player() {
     sprite.setTexture(TextureManager::getTexture("../assets/player.png"));
@@ -22,6 +22,23 @@ void Player::update(sf::Time dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
             velocity.x = 100;
     }
+
+    double velocityMagnitude = std::sqrt(std::pow(velocity.x, 2) + std::pow(velocity.y, 2));
+
+    sf::Vector2f velocityUnit;
+    if (velocityMagnitude != 0) {
+        velocityUnit.x = velocity.x / velocityMagnitude;
+        velocityUnit.y = velocity.y / velocityMagnitude;
+    } else {
+        velocityUnit.x = 0;
+        velocityUnit.y = 0;
+    }
+
+    velocity.x = velocityUnit.x * 100;
+    velocity.y = velocityUnit.y * 100;
+
+    //velocity.x = std::clamp(velocity.x, -100, 100);
+    //velocity.y = std::clamp(velocity.y, -100, 100);
     
     position += velocity * dt.asSeconds();
     sprite.setPosition(position);

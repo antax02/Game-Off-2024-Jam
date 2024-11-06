@@ -22,7 +22,8 @@ void Game::update(sf::Time dt) {
 }
 
 void Game::render() {
-    view.setCenter(player.getPosition().x + player.getRect().width / 2.0f, player.getPosition().y + player.getRect().height / 2.0f);
+    //view.setCenter(player.getPosition().x + player.getRect().width / 2.0f, player.getPosition().y + player.getRect().height / 2.0f);
+    view.setCenter(0, 0);
     window.setView(view);
     window.clear();
     window.draw(player);
