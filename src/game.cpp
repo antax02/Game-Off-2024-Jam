@@ -1,7 +1,7 @@
 #include "game.hpp"
-#include <iostream>
+#include <cmath>
 
-Game::Game() : window(sf::VideoMode(800, 600), "Game") { }
+Game::Game() : window(sf::VideoMode(800, 600), "Game"), level(32) { }
 
 void Game::run() {
     sf::Clock clock;
@@ -22,10 +22,17 @@ void Game::update(sf::Time dt) {
 }
 
 void Game::render() {
-    //view.setCenter(player.getPosition().x + player.getRect().width / 2.0f, player.getPosition().y + player.getRect().height / 2.0f);
-    view.setCenter(0, 0);
+    float playerCenterX = player.getPosition().x + player.getRect().width / 2.0f;
+    float playerCenterY = player.getPosition().y + player.getRect().height / 2.0f;
+    float viewCenterX = std::floor(playerCenterX);
+    float viewCenterY = std::floor(playerCenterY);
+    view.setCenter(viewCenterX, viewCenterY);
+
+    view.setCenter(player.getPosition());
+
     window.setView(view);
     window.clear();
+    window.draw(level);
     window.draw(player);
     window.display();
 }

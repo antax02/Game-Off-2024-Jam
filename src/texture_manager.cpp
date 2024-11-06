@@ -11,3 +11,4 @@ sf::Texture& TextureManager::getTexture(const std::string& filename) {
     }
     return textures[filename];
 }
+

@@ -51,3 +51,7 @@ sf::IntRect Player::getRect() {
 sf::Vector2f Player::getPosition() {
     return position;
 }
+
+void Player::setPosition(sf::Vector2f pos) {
+    position = pos;
+}
